@@ -1,0 +1,21 @@
+<section class="slider-section">
+  <img class="slider-image" [src]="slides[currentIndex].imgUrl" [alt]="slides[currentIndex].altText">
+
+  <button class="arrow left-arrow" (click)="prevSlide()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <button class="arrow right-arrow" (click)="nextSlide()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="dots-container">
+    @for (slide of slides; track $index) {
+      <span class="dot" [class.active]="currentIndex === $index" (click)="goToSlide($index)"></span>
+    }
+  </div>
+</section>
