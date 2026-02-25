@@ -1,1 +1,12 @@
 <app-slider></app-slider>
+
+<main class="page-container">
+  <section class="products">
+    <h2 class="section-title">Latest Products</h2>
+    <div class="product-grid">
+      @for (item of products; track item.id) {
+        <app-product-card [product]="item"></app-product-card>
+      }
+    </div>
+  </section>
+</main>

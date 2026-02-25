@@ -1,0 +1,25 @@
+<div class="card" appCardHover>
+  <div class="image-wrapper">
+    <img [src]="product.image" alt="product" class="product-image">
+  </div>
+
+  <div class="card-content">
+    <h3>{{ product.title }}</h3>
+
+    <p class="description">
+      {{ product.description | shorten:showFullDesc }}
+
+      @if (!showFullDesc) {
+        <span class="dots" (click)="toggleDesc()">...</span>
+      } @else {
+        <span class="dots" (click)="toggleDesc()"> (show less)</span>
+      }
+    </p>
+
+    <div class="price">${{ product.price }}</div>
+
+    <button class="buy-btn" [class.bought]="isBought" (click)="toggleBuy()">
+      {{ isBought ? 'Added to Cart' : 'Buy Now' }}
+    </button>
+  </div>
+</div>
