@@ -1,0 +1,25 @@
+<aside class="sidebar">
+  <!-- Search -->
+  <div class="filter-group">
+    <label>Search</label>
+    <input type="text" [ngModel]="searchTerm" (ngModelChange)="searchTermChange.emit($event)" placeholder="Search WearHere...">
+  </div>
+  <!-- category -->
+  <div class="filter-group">
+    <label>Category</label>
+    <select [ngModel]="category" (ngModelChange)="categoryChange.emit($event)">
+      @for (cat of categories; track cat) {
+        <option [value]="cat">{{ cat | titlecase }}</option>
+      }
+    </select>
+  </div>
+  <!-- price -->
+  <div class="filter-group">
+    <label>Sort by Price</label>
+    <select [ngModel]="sortOrder" (ngModelChange)="sortOrderChange.emit($event)">
+      <option value="default">Default</option>
+      <option value="low">Lowest to Highest</option>
+      <option value="high">Highest to Lowest</option>
+    </select>
+  </div>
+</aside>

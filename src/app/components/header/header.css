@@ -1,0 +1,38 @@
+/* Heading */
+.section-header {
+  text-align: center;
+  margin: 60px 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header .subtitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #64748b;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.section-header .main-title {
+  font-size: 2.8rem;
+  color: #1a1a1a;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.section-header .line {
+  width: 60px;
+  height: 4px;
+  background-color: #1a1a1a;
+  margin-top: 20px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.section-header:hover .line {
+  width: 90px;
+}

@@ -1,0 +1,9 @@
+<div class="product-grid">
+  @for (item of productList; track item.id) {
+    <app-product-card [product]="item"></app-product-card>
+  }
+
+  @if (productList.length === 0) {
+    <div class="no-results">No products match your choices.</div>
+  }
+</div>

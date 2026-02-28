@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-import { Slider } from './components/slider/slider';
-import { ProductCard } from './components/product-card/product-card';
-import { PRODUCT_LIST } from './models/product';
+import { RouterOutlet } from '@angular/router';
+import { Navbar } from './components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [Slider, ProductCard],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  title = 'App';
-  // products data
-  products = PRODUCT_LIST;
+  title = 'WearHere';
 }

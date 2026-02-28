@@ -1,0 +1,16 @@
+<section class="products-section container">
+  <!-- heading -->
+  <app-header></app-header>
+  <!-- shop -->
+  <div class="shop-layout">
+    <!-- filters -->
+    <app-filter-aside
+      [categories]="categories"
+      [(searchTerm)]="searchTerm"
+      [(category)]="selectedCategory"
+      [(sortOrder)]="sortOrder">
+    </app-filter-aside>
+    <!-- products -->
+    <app-products [productList]="filteredProducts"></app-products>
+  </div>
+</section>
