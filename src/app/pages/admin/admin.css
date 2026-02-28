@@ -1,0 +1,81 @@
+/* page */
+.admin-page {
+  padding: 40px 20px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+}
+
+.admin-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* aside */
+.admin-sidebar {
+  width: 350px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+}
+
+/* admin table */
+.admin-content {
+  flex-grow: 1;
+  overflow-x: auto;
+}
+
+.admin-search {
+  position: relative;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 22px;
+  pointer-events: none;
+}
+
+.admin-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 15px 12px 45px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.admin-search input:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+.admin-search input::placeholder {
+  color: #94a3b8;
+}
+
+/* Media */
+@media (max-width: 992px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    position: static;
+  }
+}

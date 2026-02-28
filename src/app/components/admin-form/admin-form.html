@@ -1,0 +1,23 @@
+<div class="form-container">
+  <h3>{{ selectedProduct ? 'Edit Product' : 'Add New Product' }}</h3>
+  <form (ngSubmit)="submitForm()">
+    <label>Title</label>
+    <input type="text" name="title" [(ngModel)]="formData.title" required>
+
+    <label>Price ($)</label>
+    <input type="number" name="price" [(ngModel)]="formData.price" required>
+
+    <label>Category</label>
+    <input type="text" name="category" [(ngModel)]="formData.category" required>
+
+    <label>Image URL</label>
+    <input type="text" name="image" [(ngModel)]="formData.image" required>
+
+    <div class="form-actions">
+      @if (selectedProduct) {
+        <button type="button" class="cancel-btn" (click)="onCancel.emit()">Cancel Edit</button>
+      }
+      <button type="submit" class="save-btn">Save Product</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<div class="container admin-page">
+  <h1 class="page-title">Admin Dashboard</h1>
+  <div class="admin-layout">
+    <!-- admin functions -->
+    <div class="admin-sidebar">
+      <app-admin-form [selectedProduct]="productToEdit" (onSave)="handleSave($event)" (onCancel)="handleCancel()">
+      </app-admin-form>
+    </div>
+    <div class="admin-content">
+      <!-- search -->
+      <div class="admin-search">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input type="text" placeholder="Search by Product ID..." [(ngModel)]="searchId">
+      </div>
+      <!-- admin table -->
+      <app-admin-table [products]="allProducts" (onEdit)="handleEdit($event)" (onDelete)="handleDelete($event)">
+      </app-admin-table>
+    </div>
+  </div>
+</div>

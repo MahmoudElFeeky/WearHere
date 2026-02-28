@@ -1,0 +1,28 @@
+<div class="table-container">
+  <h3>Current Products</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product.id) {
+        <tr>
+          <td><img [src]="product.image" class="thumb"></td>
+          <td>{{ product.title }}</td>
+          <td>${{ product.price }}</td>
+          <td>{{ product.category }}</td>
+          <td class="actions">
+            <button class="edit-btn" (click)="onEdit.emit(product)">Edit</button>
+            <button class="delete-btn" (click)="onDelete.emit(product.id)">✕</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
