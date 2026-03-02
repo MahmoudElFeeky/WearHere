@@ -22,8 +22,19 @@ export class CartService {
       this.items.push({ product: product, quantity: 1 });
     }
   }
+  // Updates the quantity of a specific item in the cart
+  updateQuantity(productId: string | number, quantity: number) {
+    const item = this.items.find(i => String(i.product.id) === String(productId));
+    if (item) {
+      if (quantity > 0) {
+        item.quantity = quantity;
+      } else {
+        this.removeFromCart(productId);
+      }
+    }
+  }
   // Remove
-  removeFromCart(productId: number) {
+  removeFromCart(productId: string | number) {
     this.items = this.items.filter(item => item.product.id !== productId);
   }
   // Get total price

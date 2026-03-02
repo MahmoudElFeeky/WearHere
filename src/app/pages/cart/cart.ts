@@ -1,20 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { Button } from '../../components/button/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
-  imports: [Button],
+  imports: [RouterLink],
   templateUrl: './cart.html',
   styleUrl: './cart.css'
 })
 export class CartPage {
+  // inject the CartService
+  // to access cart data and operations
   cartService = inject(CartService);
-
   get items() {
     return this.cartService.items;
   }
-
   get total() {
     return this.cartService.getTotalPrice();
   }
@@ -23,8 +23,12 @@ export class CartPage {
     alert('Redirecting to payment page...');
   }
   // remove a single item from the cart
-  removeItem(productId: number) {
-    this.cartService.removeFromCart(productId);
+  removeItem(id: string | number) {
+    this.cartService.removeFromCart(id);
+  }
+  // update the quantity of a specific item in the cart
+  updateQuantity(id: string | number, quantity: number) {
+    this.cartService.updateQuantity(id, quantity);
   }
   // empty the entire cart
   clearCart() {

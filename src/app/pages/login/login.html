@@ -1,0 +1,19 @@
+<div class="container login-page">
+  <div class="form-container">
+    <h2>Welcome Back</h2>
+    <p>Sign in to your WearHere account.</p>
+
+    <form (ngSubmit)="onSubmit()">
+      <label>Email Address</label>
+      <input type="email" name="email" [(ngModel)]="email" placeholder="admin@wearhere.com" required>
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" placeholder="••••••••" required>
+      <button type="submit" class="submit-btn">Sign In</button>
+    </form>
+
+    <div class="test-credentials">
+      <small><strong>Test Admin:</strong> admin@wearhere.com</small><br>
+      <small><strong>Test User:</strong> any other email</small>
+    </div>
+  </div>
+</div>

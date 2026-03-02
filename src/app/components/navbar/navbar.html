@@ -4,8 +4,23 @@
 
     <ul class="nav-links">
       <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/admin">Admin (CRUD)</a></li>
+      <!-- if admin -->
+      @if (authService.currentUser()?.role === 'admin') {
+        <li><a routerLink="/admin">Admin (CRUD)</a></li>
+      }
       <li><a routerLink="/cart" class="cart-link">Cart 🛒</a></li>
+      @if (authService.currentUser()) {
+        <li><a style="cursor: pointer;" (click)="authService.logout()">Logout</a></li>
+      } @else {
+        <li><a routerLink="/login">Login</a></li>
+      }
+      <li>
+        <button class="theme-toggle" (click)="themeService.toggleTheme()">
+          <span class="material-icons">
+            {{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}
+          </span>
+        </button>
+      </li>
     </ul>
   </div>
 </nav>

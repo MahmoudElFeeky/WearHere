@@ -3,10 +3,12 @@ import { Product } from '../../models/product';
 import { ShortenPipe } from '../../pipes/shorten.pipe';
 import { CartService } from '../../services/cart.service';
 import { Button } from '../button/button';
+import { RouterLink } from '@angular/router';
+import { CardHoverDirective } from '../../directives/card-hover.directive';
 
 @Component({
   selector: 'app-product-card',
-  imports: [ShortenPipe, Button],
+  imports: [ShortenPipe, Button, CardHoverDirective, RouterLink],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css'
 })

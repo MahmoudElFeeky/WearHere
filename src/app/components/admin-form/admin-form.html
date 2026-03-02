@@ -1,6 +1,10 @@
 <div class="form-container">
   <h3>{{ selectedProduct ? 'Edit Product' : 'Add New Product' }}</h3>
+
   <form (ngSubmit)="submitForm()">
+    <label>Product ID</label>
+    <input type="text" name="id" [(ngModel)]="formData.id" [readonly]="selectedProduct !== null" (keypress)="allowNumbersOnly($event)" required>
+
     <label>Title</label>
     <input type="text" name="title" [(ngModel)]="formData.title" required>
 
@@ -8,10 +12,13 @@
     <input type="number" name="price" [(ngModel)]="formData.price" required>
 
     <label>Category</label>
-    <input type="text" name="category" [(ngModel)]="formData.category" required>
+    <input type="text" name="category" [(ngModel)]="formData.category.name" required>
 
     <label>Image URL</label>
-    <input type="text" name="image" [(ngModel)]="formData.image" required>
+    <input type="text" name="image" [(ngModel)]="formData.images[0]" required>
+
+    <label>Description</label>
+    <textarea name="description" [(ngModel)]="formData.description" rows="3" required></textarea>
 
     <div class="form-actions">
       @if (selectedProduct) {

@@ -1,7 +1,7 @@
 <div class="card" appCardHover>
   <!-- image -->
-  <div class="image-wrapper">
-    <img [src]="product.image" alt="product" class="product-image">
+  <div class="image-wrapper" [routerLink]="['/product', product.id]" style="cursor: pointer;">
+    <img [src]="product.images[0]" alt="product" class="product-image">
   </div>
   <!-- content -->
   <div class="card-content">

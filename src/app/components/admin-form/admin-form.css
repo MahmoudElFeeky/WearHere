@@ -37,13 +37,30 @@ input:focus {
   border-color: #1a1a1a;
 }
 
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+/* buttons */
 .form-actions {
   display: flex;
   gap: 15px;
   margin-top: 10px;
 }
 
-/* buttons */
 .save-btn {
   flex-grow: 1;
   background: #1a1a1a;

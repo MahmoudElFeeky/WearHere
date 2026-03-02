@@ -15,7 +15,6 @@ export class AdminForm implements OnChanges {
 
   // get cur data
   formData: Product = this.getEmptyProduct();
-
   // edit, update the form data
   ngOnChanges() {
     if (this.selectedProduct) {
@@ -24,13 +23,19 @@ export class AdminForm implements OnChanges {
       this.formData = this.getEmptyProduct();
     }
   }
-
+  // submit form data
   submitForm() {
     this.onSave.emit(this.formData);
     this.formData = this.getEmptyProduct();
   }
-
+  // clear form data
   getEmptyProduct(): Product {
-    return { id: 0, title: '', price: 0, description: '', category: '', image: ''};
+    return {id: '', title: '', price: '' as any, description: '', category: { id: 1, name: '', image: '' }, images: ['']};
+  }
+  // prevent strings
+  allowNumbersOnly(event: KeyboardEvent): void {
+    if (!/^\d$/.test(event.key)) {
+      event.preventDefault();
+    }
   }
 }

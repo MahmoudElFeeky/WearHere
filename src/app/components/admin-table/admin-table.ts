@@ -10,5 +10,5 @@ import { Product } from '../../models/product';
 export class AdminTable {
   @Input() products: Product[] = [];
   @Output() onEdit = new EventEmitter<Product>();
-  @Output() onDelete = new EventEmitter<number>();
+  @Output() onDelete = new EventEmitter<string | number>();
 }

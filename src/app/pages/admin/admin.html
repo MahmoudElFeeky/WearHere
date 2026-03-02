@@ -9,11 +9,11 @@
     <div class="admin-content">
       <!-- search -->
       <div class="admin-search">
-        <mat-icon class="search-icon">search</mat-icon>
+        <span class="material-icons search-icon">search</span>
         <input type="text" placeholder="Search by Product ID..." [(ngModel)]="searchId">
       </div>
       <!-- admin table -->
-      <app-admin-table [products]="allProducts" (onEdit)="handleEdit($event)" (onDelete)="handleDelete($event)">
+      <app-admin-table [products]="filteredProducts" (onEdit)="handleEdit($event)" (onDelete)="handleDelete($event)">
       </app-admin-table>
     </div>
   </div>

@@ -1,46 +1,60 @@
-<div class="container cart-page">
-  <h1 class="page-title">Your Cart</h1>
-  <!-- cart layout -->
+<div class="cart-container container">
+  <!-- heading -->
+  <div class="cart-header">
+    <h1>Your Cart</h1>
+    @if (items.length > 0) {
+      <button class="clear-btn" (click)="clearCart()">Clear Cart 🗑️</button>
+    }
+  </div>
+  <!-- if empty -->
   @if (items.length === 0) {
-    <div class="empty-cart">
-      <h2>Your cart is looking a little empty!</h2>
-      <p>Go add some awesome WearHere gear.</p>
+    <div class="empty-cart-card">
+      <span class="material-icons empty-icon">shopping_bag</span>
+      <h2>Your cart is currently empty.</h2>
+      <p>Looks like you haven't added anything yet.</p>
+      <a routerLink="/" class="continue-btn">Continue Shopping</a>
     </div>
   } @else {
+  <!-- if there are items -->
     <div class="cart-layout">
-      <div class="cart-items">
-        <!-- clear btn -->
-        <div style="text-align: right; margin-bottom: 15px;">
-          <button class="clear-btn" (click)="clearCart()">Clear Cart 🗑️</button>
-        </div>
-        <!-- cards -->
+      <!-- cart details -->
+      <div class="cart-items-list">
         @for (item of items; track item.product.id) {
-          <div class="cart-card">
-            <img [src]="item.product.image" [alt]="item.product.title" class="cart-img">
+          <div class="cart-item">
+            <img [src]="item.product.images[0]" [alt]="item.product.title" class="cart-item-image">
             <div class="item-details">
               <h3>{{ item.product.title }}</h3>
               <p class="item-price">${{ item.product.price }}</p>
             </div>
-            <div class="item-quantity">
-              <span>Qty: {{ item.quantity }}</span>
+            <div class="quantity-controls">
+              <button class="qty-btn" (click)="updateQuantity(item.product.id, item.quantity - 1)">-</button>
+              <span class="qty-number">{{ item.quantity }}</span>
+              <button class="qty-btn" (click)="updateQuantity(item.product.id, item.quantity + 1)">+</button>
             </div>
-            <div class="item-total">
-              <strong>${{ (item.product.price * item.quantity) }}</strong>
+            <div class="item-row-total">
+              ${{ item.product.price * item.quantity }}
             </div>
-            <!-- remove btn -->
             <button class="remove-btn" (click)="removeItem(item.product.id)" title="Remove item">✕</button>
           </div>
         }
       </div>
-      <!-- Final order details -->
+      <!-- payment details -->
       <div class="cart-summary">
         <h3>Order Summary</h3>
         <div class="summary-row">
-          <span>Total</span>
-          <span class="total-price">${{ total }}</span>
+          <span>Subtotal</span>
+          <span>${{ total }}</span>
         </div>
-        <app-button title="Proceed to Checkout" bgColor="#1a1a1a" (onClick)="checkout()">
-        </app-button>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>Free</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span>${{ total }}</span>
+        </div>
+        <button class="checkout-btn" (click)="checkout()">Proceed to Checkout</button>
       </div>
     </div>
   }
