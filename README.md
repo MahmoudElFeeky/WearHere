@@ -1,59 +1,96 @@
-# MyProject
+```markdown
+# 🛍️ WearHere (Angular E-Commerce Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
+An interactive, responsive, and fully functional e-commerce frontend application built with Angular. This project serves as the client-side architecture for an online clothing store, complete with a mock backend, authentication guards, and a dedicated admin dashboard for inventory management.
 
-## Development server
+## ✨ Key Features
 
-To start a local development server, run:
+* **Dynamic Product Catalog:** Browse products, view individual product details, and filter by categories.
+* **Shopping Cart System:** Add items, adjust quantities, calculate real-time totals, and remove products.
+* **Admin Dashboard (CRUD):** A protected route where administrators can Create, Read, Update, and Delete products from the inventory.
+* **Authentication & Authorization:** Mock login system with route guarding. Only users with Admin credentials can access the dashboard.
+* **Dark/Light Mode:** Full global theme toggling using Angular Signals and standard CSS.
+* **Responsive Design:** Optimized layout for desktop, tablet, and mobile viewing using CSS Grid and Flexbox.
 
-```bash
+## 🛠️ Tech Stack
+
+* **Framework:** Angular
+* **Language:** TypeScript, HTML5, CSS
+* **State Management:** Angular Signals & RxJS
+* **Mock Database:** `json-server` (Local JSON file persistence)
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+Make sure you have Node.js and the Angular CLI installed on your machine.
+* npm
+  ```sh
+  npm install npm@latest -g
+
+```
+
+* Angular CLI
+```sh
+npm install -g @angular/cli
+
+```
+
+
+
+### Installation & Setup
+
+1. **Clone the repo**
+```sh
+git clone (https://github.com/MahmoudElFeeky/WearHere.git)
+
+```
+
+
+2. **Install NPM packages**
+```sh
+npm install
+
+```
+
+
+3. **Start the Mock Backend (JSON Server)**
+Open a terminal in the project root and run the mock database to serve the products:
+```sh
+npx json-server --watch db.json --port 3000
+
+```
+
+
+4. **Start the Angular Development Server**
+Open a *second* terminal and run:
+```sh
 ng serve
+
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+5. **Open the App**
+Navigate to `http://localhost:4200` in your browser.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🔐 Testing the Admin Roles
 
-```bash
-ng generate component component-name
-```
+To test the route guards and Admin CRUD capabilities:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Navigate to the **Login** page.
+2. Enter the Admin email: `admin@wearhere.com` (Password can be anything for this mock).
+3. The **Admin** tab will automatically appear in the navigation bar, granting access to the inventory table.
 
-```bash
-ng generate --help
-```
+## 📁 Project Architecture
 
-## Building
+This application follows a highly modular, component-based architecture inside the `src/app` directory:
 
-To build the project run:
+* `/components`: Reusable UI elements (Navbar, Product Cards, Sliders, Admin Tables).
+* `/pages`: Routable views (Home, Cart, Login, Admin Dashboard, Product Details).
+* `/services`: Singletons managing data and state (AuthService, CartService, ProductService, ThemeService).
+* `/guards`: Route protection logic (AdminGuard).
 
-```bash
-ng build
-```
+## 🔮 Future Development
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+*Note: This repository represents the completed frontend-only architecture. The project is currently being migrated to a full MEAN stack (MongoDB, Express, Angular, Node.js) in a separate repository to handle real user authentication, payment processing, and a production-ready database.*
